@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy --base-href=https://christodoulos.github.io/angular-introduction/"
+    "deploy": "ng deploy --base-href=git@github.com:cgioldasis/cgioldasis.github.io.git"
   },
   "private": true,
   "dependencies": {
