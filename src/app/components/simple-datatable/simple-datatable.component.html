@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         @for(row of data; track row) {
-            <tr class="align-middle" (dblclick)="onPersonClicked(row)">
+            <tr class="align-middle" (click)="onPersonClicked(row)">
                 <td>{{ row.givenName }}</td>
                 <td>{{ row.surName }}</td>
                 <td>{{ row.age }}</td>
