@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { EPerson } from 'src/app/shared/interfaces/person';
+import { sortBy } from 'lodash-es';
 
 @Component({
   selector: 'app-simple-datatable',
@@ -9,5 +10,39 @@ import { EPerson } from 'src/app/shared/interfaces/person';
   styleUrl: './simple-datatable.component.css'
 })
 export class SimpleDatatableComponent {
-@Input() data: EPerson[];
+  @Input() data: EPerson[];
+
+  sortOrder = {
+    givenName: 'none',
+    surName: 'none',
+    age: 'none',
+    email: 'none',
+    education: 'none'
+  }
+
+  sortData(sortKey : string) {
+    if (this.sortOrder[sortKey] === 'asc') { // the first time will be none, so the if goes to else.
+      this.sortOrder[sortKey] = 'desc';
+      this.data = sortBy(this.data, sortKey).reverse();
+    } else {
+      this.sortOrder[sortKey] = 'asc';
+      this.data = sortBy(this.data, sortKey);
+    }
+
+    for (let key in this.sortOrder) {  // makes all the others noe when i click a field
+      if (key !== sortKey) {
+        this.sortOrder[key] = 'none'
+      }
+    }
+  }
+
+  sortSign(sortKey: string) {
+      if (this.sortOrder[sortKey] === 'asc') {
+        return '↑';
+      } else if (this.sortOrder[sortKey] === 'desc') {
+        return '↓';
+      } else {
+        return '';
+      }
+    }
 }
