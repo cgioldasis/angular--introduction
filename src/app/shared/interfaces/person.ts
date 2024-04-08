@@ -14,6 +14,7 @@ export interface EPerson {
   education: string;
 }
 
+
 export const ManyPerson: EPerson[] = [
   {
     "givenName": "Grace",
