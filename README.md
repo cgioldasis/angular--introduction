@@ -1,6 +1,5 @@
 # Εισαγωγή στο Angular Framework
 
-[7:19 μ.μ.] ΦΡΑΓΚΟΥΔΑΚΗΣ ΧΡΙΣΤΟΔΟΥΛΟΣ;FRAGKOUDAKIS CHRISTODOULOS
 ## Βήμα 13: ΗTTP Client Service
  
 - Για να μπορέσουμε να χρησιμοποιήσουμε τον HTTP Client είναι απαραίτητη η επέμβαση στο `app.config.ts` :
