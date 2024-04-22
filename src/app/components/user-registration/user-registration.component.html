@@ -1,4 +1,7 @@
 <h4>User registration example</h4>
+
+@if(registrationStatus.message === "Not attempted yet") {
+
 <form [formGroup]="form" class="d-flex flex-column">
     <mat-form-field>
         <mat-label>First Name</mat-label>
@@ -80,4 +83,20 @@
     Register
 </button>
 
+<!-- the else of the @if of the begining -->
+} @else {  
+    @if(registrationStatus.success) {
+        <div class="alert alert-success  mt-2 w-50">
+            <strong>Success:</strong> {{registrationStatus.message}}
+        </div>
+    } @else {
+        <div class="alert alert-danger mt-2 w-50">
+            <strong>Error:</strong> {{registrationStatus.message}}
+        </div>
+    }
 
+    <!-- This button calling the fanction registerAnotherUser() to reset the form -->
+    <button mat-flat-button color="primary" class="mt-2" (click)="registerAnotherUser()">
+        Register another user!!!
+    </button>
+}

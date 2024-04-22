@@ -15,4 +15,7 @@ export class UserService {
   registerUser(user: User) {
     return this.http.post<{msg: string}>(`${API_URL}/register`, user)
   }
+
+  check_dublicate_email(email: string) {
+    return this.http.get<{msg: string}>(`${API_URL}/check_dublicate_email/${email}`)
 }

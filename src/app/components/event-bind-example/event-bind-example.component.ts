@@ -25,7 +25,7 @@ export class EventBindExampleComponent {
   }
 
   onUserInput(event: Event) {
-    const value = (event.target as HTMLInputElement).value;
+    const value = (event.target as HTMLInputElement).value; 
     this.userInput = value;
   }
 }

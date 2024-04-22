@@ -17,6 +17,8 @@ import { UserService } from 'src/app/shared/service/user.service';
 export class UserRegistrationComponent {
   userService = inject(UserService);
 
+  registrationStatus: {success: boolean, message: string} = {success: false, message: 'Not attempted yet'}; // success false is the default value...
+
   form = new FormGroup({
     givenName: new FormControl('', Validators.required),
     surName: new FormControl('', Validators.required),
@@ -35,7 +37,8 @@ export class UserRegistrationComponent {
     return {}
   }
 
-  onSubmit(value: any) {
+// onSubmit()  is the button click event handler
+  onSubmit(value: any) {  // value are the data of the form and any is the type of the value, we can have any type of value
     console.log(value);
     const user = this.form.value as User;
     delete user["confirmPassword"];
@@ -43,14 +46,19 @@ export class UserRegistrationComponent {
     this.userService.registerUser(user).subscribe({
       next: (response) => {
         console.log("User Registered", response.msg);
+        this.registrationStatus = {success: true, message: response.msg};
       },
       error: (response) => {
-        const message = response.error.message;
+        const message = response.error.msg;
         console.log("Error Registering user", message);
+        this.registrationStatus = {success: false, message: message};
       }
     })
   }
   
-
+  registerAnotherUser() {
+    this.form.reset();
+    this.registrationStatus = {success: false, message: 'Not attempted yet'}; // reseting also the default status!!!
+  }
 
 }
