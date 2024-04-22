@@ -61,4 +61,19 @@ export class UserRegistrationComponent {
     this.registrationStatus = {success: false, message: 'Not attempted yet'}; // reseting also the default status!!!
   }
 
+  check_dublicate_email() {
+    const email = this.form.get('email').value;
+    this.userService.check_dublicate_email(email).subscribe({
+      next: (response) => {
+        console.log(response.msg);
+        this.form.get('email').setErrors(null);  // we send empty object.
+      },
+      error: (response) => {
+        const message = response.error.msg;
+        console.log("Email already exists", message);
+        this.form.get('email').setErrors({dublicateEmail: true});
+      }
+    })
+  }
+
 }
