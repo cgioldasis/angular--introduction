@@ -1,0 +1,15 @@
+<nav class="navbar navbar-dark bg-primary justify-content-between">
+    <a role="button" class="navbar-brand ms-3" routerLink="">CF5 - Angular Introduction</a>
+
+    <!-- we are calling the signal -->
+    @if(user()) { 
+        <span class="me-3 d-flex gap-2 text-light">Welcome {{user().fullname}}
+        <mat-icon role="button" (click) ="logout()">logout</mat-icon>
+        </span>
+    } @else {
+        <span class="text-light me-3 d-flex gap-2">Login
+        <mat-icon role="button" class="icon-link-hoover" routerLink="login">login</mat-icon>
+        </span>
+    }
+    
+</nav>

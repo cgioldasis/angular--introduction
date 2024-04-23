@@ -63,7 +63,7 @@ export class UserRegistrationComponent {
 
   check_dublicate_email() {
     const email = this.form.get('email').value;
-    this.userService.check_dublicate_email(email).subscribe({
+    this.userService.check_duplicate_email(email).subscribe({
       next: (response) => {
         console.log(response.msg);
         this.form.get('email').setErrors(null);  // we send empty object.

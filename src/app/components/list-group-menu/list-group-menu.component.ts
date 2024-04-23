@@ -19,6 +19,7 @@ export class ListGroupMenuComponent {
     {text: 'Template Driven Form Example', routerLink: 'template-driven-form-example'},
     {text: 'Reactive Form Example', routerLink: 'reactive-form-example'},
     {text: 'Http Client Example', routerLink: 'http-client-example'},
+    {text: 'Restricted Content Example', routerLink: 'restricted-content-example'},
     {text: 'User Registration Example', routerLink: 'user-registration-example'}
   ];
 }
