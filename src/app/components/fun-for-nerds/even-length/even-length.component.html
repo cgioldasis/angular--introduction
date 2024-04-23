@@ -1,0 +1,15 @@
+
+@if(partialWord.length > 0) {
+    <span class="text-danger">{{partialWord}}</span>
+    <br/>
+}
+
+@if(!words.length) {
+    <p>No even length word</p>
+} @else {
+    @for (word of words; track word) {
+        {{word}}
+        <br />
+    }
+}
+

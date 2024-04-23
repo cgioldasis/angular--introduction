@@ -1,0 +1,12 @@
+<div class="container mt-5">
+    <div class="d-flex flex-column gap-2">
+        <div class="alert alert-primary text-center fw-blod">
+            Fun For Nerds
+        </div>
+        <app-word-input (partialWord)="onPartionWord($event)" (word)="onWord($event)"></app-word-input>
+        <div class="d-flex justify-content-between gap-2">
+            <app-odd-length [partialWord]="partialOddWord" [words]="oddLengthWors"></app-odd-length>
+            <app-even-length [partialWord]="partialEvenWord" [words]="evenLengthWords"></app-even-length>
+        </div>
+    </div>
+</div>
